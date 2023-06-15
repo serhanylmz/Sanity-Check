@@ -4,6 +4,107 @@
     <meta charset="UTF-8">
     <title>Interactive Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        #province-table {
+            margin-top: 20%;
+            font-family:'Comfortaa';
+        }
+        #province-table table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        #province-table th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        #result {
+            margin-top:15px; 
+            padding:10px; 
+            border-radius:50px; /* Gives an oval shape */
+            background-color:#f9f871; /* Light yellowish color */
+        }
+        #content-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        #province-table,
+
+        #result-div {
+            width: 30%; /* Adjust these percentages according to your needs */
+        }
+
+        #result {
+            height: 50px;
+            padding:10px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            border-radius: 50px;
+            font-family: 'Comfortaa', cursive; /* use Comfortaa */
+            text-transform: uppercase; /* make text uppercase*/
+        }
+        #content-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        #province-table,
+        #result-div {
+            width: 45%; /* Adjust these percentages according to your needs */
+        }
+
+        #province-table {
+            margin-top:10%;
+        }
+
+        #province-table table {
+            width: 100%;
+            border-collapse: collapse; /* Collapses borders into single line */
+        }
+
+        #province-table th, 
+        #province-table td {
+                border: 1px solid #ddd; /* Create border */
+                padding: 8px;
+                text-align:center;
+        }
+
+            /* Adds background color for header rows */
+        #province-table th { 
+                background-color:#f2f2f2; /* slight gray shade*/
+        } 
+                
+        #result {
+            margin-top: 30%;
+            height:50px; 
+            display:flex; 
+            align-items:center; 
+            justify-content:center;
+            border-radius:50px;
+            font-family:'Comfortaa';
+        }
+        #content-container h2 {
+            padding: 20px;
+            background-color:#f9f871;
+        }
+
+        #scroll-up-btn {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <style>
         #map {
@@ -21,7 +122,16 @@
 <body>
 <div id="map"></div>
 
-<script src='data.js'></script>
+<!-- Displayed when a province is clicked -->
+<div id="content-container">
+    <h2 id="province-title" style="text-align:center;"></h2> <!-- Province Title -->
+    <div id="province-table"></div>
+    <div id="result-div">
+        <!-- Scroll Up Button with new styling -->
+        <button id="scroll-up-btn" style="display:none; width: 100%; margin-top: 20px;text-align:center;">Check Another Province</button>
+    </div>
+</div>
+
 <script src='main.js'></script>
 
 </body>
